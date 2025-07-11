@@ -1,7 +1,10 @@
+import sys
+import tkinter as tk
 from deck import Deck
 from quiz import Quiz
 
-def main():
+def run_cli():
+    """Run the original command-line interface"""
     deck = Deck()
 
     print("Welcome to the Flashcard Quiz App!\n")
@@ -38,6 +41,43 @@ def main():
 
     quiz = Quiz(deck)
     quiz.start()
+
+def run_gui():
+    """Run the GUI interface"""
+    try:
+        from flashcard_gui import FlashcardGUI
+        root = tk.Tk()
+        app = FlashcardGUI(root)
+        root.mainloop()
+    except ImportError:
+        print("GUI dependencies not available. Please install tkinter.")
+        sys.exit(1)
+
+def main():
+    """Main entry point - choose between GUI and CLI"""
+    if len(sys.argv) > 1:
+        if sys.argv[1] == '--cli':
+            run_cli()
+        elif sys.argv[1] == '--gui':
+            run_gui()
+        else:
+            print("Usage: python main.py [--gui|--cli]")
+            print("  --gui: Run with graphical interface (default)")
+            print("  --cli: Run with command-line interface")
+            sys.exit(1)
+    else:
+        # Default to GUI if no arguments provided
+        print("🧠 Flashcard Quiz App")
+        print("Choose your interface:")
+        print("1. GUI (Graphical Interface)")
+        print("2. CLI (Command Line Interface)")
+        
+        choice = input("Choose an option (1 or 2, default 1): ").strip()
+        
+        if choice == '2':
+            run_cli()
+        else:
+            run_gui()
 
 if __name__ == "__main__":
     main()
