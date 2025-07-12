@@ -28,18 +28,20 @@ A modern flashcard application written in Python with both graphical (GUI) and c
 - **Batch card creation** with continuous input
 - **Lightweight and fast** execution
 
-## 🛠 Project Structure
+## 🏗️ Project Structure
 
 ```
 flashcard-app/
-├── flashcard.py           # Flashcard class definition
-├── deck.py               # Deck management and card operations
-├── quiz.py               # Quiz logic and scoring system
-├── main.py               # Entry point with GUI/CLI selection
-├── flashcard_gui.py      # GUI implementation using Tkinter
-├── italian_flashcards.json  # Sample flashcard deck
-├── README.md             # This file
-└── .gitignore           # Git ignore rules
+├── bin/
+│   └── main.py                    # Entry point with GUI/CLI selection
+├── src/
+│   ├── flashcard.py              # Flashcard class definition
+│   ├── deck.py                   # Deck management and card operations
+│   ├── quiz.py                   # Quiz logic and scoring system
+│   └── flashcard_gui.py          # GUI implementation using Tkinter
+├── italian_flashcards.json       # Sample flashcard deck
+├── README.md                     # This file
+└── .gitignore                    # Git ignore rules
 ```
 
 ## 🚀 Installation & Setup
